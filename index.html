@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Helping Hand - Connect with trusted NGOs and charities. Donate to verified causes or find help when you need it most.">
+    <meta name="keywords" content="charity, NGO, donation, help, volunteering, social causes">
+    <meta name="author" content="Helping Hand">
+    <title>Helping Hand - Lend a Hand, Change a Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#FF6B35',
+                        'primary-dark': '#E55A2B',
+                        'secondary': '#4ECDC4',
+                        'warm': '#FFE5D9',
+                        'trust': '#2D3748'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter text-trust bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+               <!-- Logo -->
+<a href="#home" class="flex items-center space-x-3 group transition-transform duration-200 hover:scale-105">
+    <div class="bg-white p-2 rounded-full shadow-md ring-2 ring-primary/10">
+        <img src="LOGO.png" 
+             alt="Helping Hand Logo" 
+             class="h-10 w-auto block"
+             loading="eager">
+    </div>
+    <div class="flex flex-col">
+        <span class="text-xl font-extrabold text-primary">HELPING HAND</span>
+        <span class="text-xs font-medium text-gray-600">Connect. Share. Care.</span>
+    </div>
+</a>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="text-trust hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="text-trust hover:text-primary transition-colors">About</a>
+                    <a href="#donate" class="text-trust hover:text-primary transition-colors">Donate Now</a>
+                </nav>
+                
+                <!-- Right side actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Language Switcher -->
+                    <div class="relative">
+                        <select id="language-switcher" class="appearance-none bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="fr">Français</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Login/Register -->
+                    <div class="hidden md:flex items-center space-x-3">
+                        <button class="text-primary hover:text-primary-dark font-medium transition-colors">Login</button>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors">Register</button>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <a href="#home" class="block text-trust hover:text-primary">Home</a>
+                <a href="#about" class="block text-trust hover:text-primary">About</a>
+                <a href="#donate" class="block text-trust hover:text-primary">Donate Now</a>
+                <div class="flex space-x-3 pt-2">
+                    <button class="text-primary hover:text-primary-dark font-medium">Login</button>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">Register</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-br from-warm to-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-trust mb-4">
+                Helping Hand
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8">
+                Lend a hand, change a life
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="donate-btn" class="bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+                    Donate Now
+                </button>
+                <button id="find-ngo-btn" class="bg-white hover:bg-gray-100 text-trust font-semibold py-3 px-6 rounded-lg border-2 border-primary transition duration-300">
+                    Find an NGO
+                </button>
+                <button id="find-nearest-ngo" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                    </svg>
+                    Find Nearest NGOs
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Search -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search for NGOs, causes, or locations..." 
+                           class="w-full px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pr-12">
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white p-3 rounded-full hover:bg-primary-dark transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-trust mb-12">How It Works</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- For Donors -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1.81.45 1.61 1.67 1.61 1.16 0 1.6-.64 1.6-1.46 0-.84-.68-1.22-2.05-1.64-1.43-.43-3.02-1.03-3.02-3.08 0-1.73 1.23-2.84 2.97-3.18V5h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.63-1.63-1.63-1.01 0-1.46.54-1.46 1.34 0 .88.66 1.22 2.05 1.64 1.44.44 3.02 1.04 3.02 3.08 0 1.81-1.28 2.96-3.07 3.32z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-trust mb-4">For Donors</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>Browse verified NGOs and causes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>Choose your donation amount</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>Track your impact with real-time updates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>Receive tax receipts for donations</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- For People in Need -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-trust mb-4">For People in Need</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-secondary mr-2">•</span>
+                            <span>Search for relevant NGOs by location or cause</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-secondary mr-2">•</span>
+                            <span>Connect directly with verified organizations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-secondary mr-2">•</span>
+                            <span>Access emergency assistance programs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-secondary mr-2">•</span>
+                            <span>Get guidance on available resources</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured NGOs -->
+    <section class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-trust mb-12">Featured NGOs</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- NGO Card 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div class="h-48 bg-primary overflow-hidden">
+                        <img src="Cardiac care.png" 
+                             alt="Cardiac care services" 
+                             class="w-full h-full object-cover"
+                             loading="eager">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-trust mb-2">Cardiac Care Foundation</h3>
+                        <p class="text-gray-600 mb-4">Providing specialized cardiac care and heart health education to communities in need.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium text-primary">Cardiology</span>
+                            <a href="#" class="text-primary hover:text-primary-dark font-medium">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NGO Card 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div class="h-48 bg-secondary overflow-hidden">
+                        <img src="Health Care Heroes.png" 
+                             alt="Healthcare professionals team" 
+                             class="w-full h-full object-cover"
+                             loading="eager">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-trust mb-2">Healthcare Heroes</h3>
+                        <p class="text-gray-600 mb-4">Delivering medical care and health services to remote communities.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium text-secondary">Healthcare</span>
+                            <a href="#" class="text-primary hover:text-primary-dark font-medium">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NGO Card 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div class="h-48 bg-purple-500 overflow-hidden">
+                        <img src="Elderly.png" 
+                             alt="Elderly care services" 
+                             class="w-full h-full object-cover"
+                             loading="eager">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-trust mb-2">Elderly Care Network</h3>
+                        <p class="text-gray-600 mb-4">Providing compassionate care and support for elderly community members.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium text-purple-500">Senior Care</span>
+                            <a href="#" class="text-primary hover:text-primary-dark font-medium">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-trust mb-6">About Helping Hand</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    We're a dedicated platform connecting compassionate donors with verified NGOs and charitable organizations. 
+                    Our mission is to make charitable giving transparent, accessible, and impactful for everyone involved.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearest NGOs Section -->
+    <section id="nearest-ngos" class="py-16 bg-gray-50 hidden">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-trust mb-8">Nearest NGOs to You</h2>
+                
+                <!-- Filter Options -->
+                <div id="filter-options" class="bg-white rounded-lg shadow-md p-4 mb-8">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <!-- Service Type Filter -->
+                        <div class="w-full md:w-1/3">
+                            <label for="service-type" class="block text-sm font-medium text-gray-700 mb-1">Service Type</label>
+                            <select id="service-type" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                                <option value="all">All Services</option>
+                                <option value="Cardiac Care">Cardiac Care</option>
+                                <option value="General Medicine">General Medicine</option>
+                                <option value="Elderly Care">Elderly Care</option>
+                                <option value="Dental Care">Dental Care</option>
+                                <option value="Pediatrics">Pediatrics</option>
+                                <option value="Pharmacy">Pharmacy</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Distance Filter -->
+                        <div class="w-full md:w-1/3">
+                            <label for="distance" class="block text-sm font-medium text-gray-700 mb-1">Within Distance</label>
+                            <select id="distance" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                                <option value="5">5 km</option>
+                                <option value="10" selected>10 km</option>
+                                <option value="20">20 km</option>
+                                <option value="50">50 km</option>
+                                <option value="100">100 km</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Sort By -->
+                        <div class="w-full md:w-1/3">
+                            <label for="sort-by" class="block text-sm font-medium text-gray-700 mb-1">Sort By</label>
+                            <select id="sort-by" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                                <option value="distance">Distance (nearest first)</option>
+                                <option value="name">Name (A-Z)</option>
+                                <option value="rating">Rating (highest first)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Filters Toggle -->
+                    <div class="mt-4 text-center">
+                        <button id="show-more-filters" class="text-sm text-primary hover:text-primary-dark font-medium flex items-center justify-center w-full">
+                            <span>More Filters</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Additional Filters (Hidden by default) -->
+                    <div id="additional-filters" class="hidden mt-4 pt-4 border-t border-gray-200">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Availability -->
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" checked>
+                                    <span class="ml-2 text-sm text-gray-700">Open Now</span>
+                                </label>
+                            </div>
+                            
+                            <!-- Accepting Volunteers -->
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                                    <span class="ml-2 text-sm text-gray-700">Accepting Volunteers</span>
+                                </label>
+                            </div>
+                            
+                            <!-- Emergency Services -->
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                                    <span class="ml-2 text-sm text-gray-700">24/7 Emergency</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map and Results -->
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Map -->
+                    <div class="w-full lg:w-2/3">
+                        <div id="map" class="h-96 w-full rounded-lg shadow-lg mb-4"></div>
+                        <p class="text-sm text-gray-500 text-center">Showing <span id="results-count">0</span> NGOs near you</p>
+                    </div>
+                    
+                    <!-- Results List -->
+                    <div class="w-full lg:w-1/3">
+                        <div class="bg-white rounded-lg shadow-md p-4 h-full">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Nearby NGOs</h3>
+                            <div id="ngos-list" class="space-y-4 max-h-[32rem] overflow-y-auto pr-2">
+                                <!-- NGOs will be dynamically inserted here -->
+                                <div class="text-center py-8 text-gray-500">
+                                    <p>Loading NGOs near you...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section id="chat" class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-trust mb-8">Chat with NGOs</h2>
+            <p class="text-center text-gray-600 mb-6">Select your role, choose an NGO, and start a conversation. Messages are stored only in this browser (demo).</p>
+
+            <div class="bg-gray-50 rounded-xl shadow-md p-4 md:p-6 space-y-4">
+                <!-- Role & NGO selectors -->
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1" for="chat-role">You are</label>
+                        <select id="chat-role" class="w-full md:w-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                            <option value="user">User</option>
+                            <option value="ngo">NGO</option>
+                        </select>
+                    </div>
+
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium text-gray-700 mb-1" for="chat-ngo-select">Select NGO</label>
+                        <select id="chat-ngo-select" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                            <option value="">Choose an NGO...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Chat window -->
+                <div id="chat-window" class="bg-white rounded-lg border border-gray-200 h-80 overflow-y-auto p-3 space-y-2 text-sm">
+                    <p class="text-center text-gray-400 text-xs">Select an NGO to start chatting.</p>
+                </div>
+
+                <!-- Message input -->
+                <form id="chat-form" class="flex flex-col md:flex-row gap-3 pt-2">
+                    <input id="chat-message-input" type="text" placeholder="Type your message..." class="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                    <button type="submit" class="bg-primary text-white px-5 py-2 rounded-md hover:bg-primary-dark transition-colors font-medium">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-trust mb-6">Get in Touch</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    Have questions? Want to partner with us? We'd love to hear from you.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="font-semibold text-trust mb-2">Email</h3>
+                        <p class="text-gray-600">prayasidas05@gmail.com</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="font-semibold text-trust mb-2">Phone</h3>
+                        <p class="text-gray-600">+91 81319 40145</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="font-semibold text-trust mb-2">Address</h3>
+                        <p class="text-gray-600">Ramnagar Road No.4, Agartala, West Tripura - 799002</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="font-semibold text-trust mb-2">Hours</h3>
+                        <p class="text-gray-600">Mon-Fri: 9AM-6PM EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="donate" class="bg-trust text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <a href="#home" class="flex items-center space-x-3 group transition-transform duration-200 hover:scale-105">
+                    <div class="bg-white p-2 rounded-full shadow-md ring-2 ring-primary/10">
+                        <img src="images/LOGO.jpeg" 
+                             alt="Helping Hand Logo" 
+                             class="h-10 w-auto block"
+                             loading="eager">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold text-primary">HELPING HAND</span>
+                        <span class="text-xs font-medium text-gray-600">Connect. Share. Care.</span>
+                    </div>
+                </a>
+                <p class="text-gray-300">Lend a hand, change a life.</p>
+                
+                <nav class="flex flex-wrap justify-center md:justify-end space-x-8">
+                    <a href="#home" class="hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#donate" class="bg-primary px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors">Donate Now</a>
+                </nav>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Helping Hand. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
